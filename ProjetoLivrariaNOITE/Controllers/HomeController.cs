@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using ProjetoLivrariaNOITE.Dados;
+using ProjetoLivrariaNOITE.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +11,36 @@ namespace ProjetoLivrariaNOITE.Controllers
 {
     public class HomeController : Controller
     {
+        ClLivros cl = new ClLivros();
+        clLivrosAcoes ac = new clLivrosAcoes();
+
+        public void carregaAutores()
+        {
+            List<SelectListItem> autores = new List<SelectListItem>();
+            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase:bdLivrariaNoite;User=root;pwd=12345678"))
+            {
+                con.Open();
+                MySqlCommand cmd = new MySqlCommand("select * from tbAutor where sta='Disponível'", con);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+                while(rdr.Read())
+                {
+                    autores.Add(new SelectListItem
+                    {
+                        Text = rdr[1].ToString(),
+                        Value = rdr[0].ToString()
+                    });
+                }
+                con.Close();
+
+            }
+            ViewBag.autores = new SelectList(autores, "Value", "Text");
+        }
+
+        public ActionResult CadLivro()
+        {
+            carregaAutores();
+            return View();
+        }
         public ActionResult Index()
         {
             return View();
