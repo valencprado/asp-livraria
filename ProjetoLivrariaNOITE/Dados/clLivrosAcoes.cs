@@ -27,6 +27,22 @@ namespace ProjetoLivrariaNOITE.Dados
 
         }
 
+        public void inserirAutor(ClLivros cm) // cm: É um objeto que vai trazer as "VARIAVEIS DO MODELO".
+        {
+            MySqlCommand cmd = new MySqlCommand("insert into tbAutor (nomeAutor, sta) values (@nomeAutor, @sta)", con.MyConectarBD()); // @: PARAMETRO
+
+
+            cmd.Parameters.Add("@nomeAutor",MySqlDbType.VarChar).Value = cm.nomeAutor;
+            cmd.Parameters.Add("@sta", MySqlDbType.VarChar).Value = cm.sta;
+
+            // nomeCli e telCli: São variaveis
+
+            cmd.ExecuteNonQuery();
+            con.MyDesConectarBD();
+         
+
+        }
+
 
 
     }

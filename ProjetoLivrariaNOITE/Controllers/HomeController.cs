@@ -40,6 +40,27 @@ namespace ProjetoLivrariaNOITE.Controllers
         {
             carregaAutores();
             return View();
+        } 
+        [HttpPost] // cadastro só acontece quando o botão é ativado
+        public ActionResult CadLivro(ClLivros cm)// passar as variáveis com os dados para o cadastro
+        {
+            carregaAutores();
+            cm.codAutor = Request["autores"];
+            ac.inserirLivro(cm);
+            return View();
+        }
+        public ActionResult CadAutor()
+        {
+     
+            return View();
+        }
+        [HttpPost] // cadastro só acontece quando o botão é ativado
+        public ActionResult CadAutor(ClLivros cm)// passar as variáveis com os dados para o cadastro
+        {
+            
+            cm.codAutor = Request["autores"];
+            ac.inserirLivro(cm);
+            return View();
         }
         public ActionResult Index()
         {

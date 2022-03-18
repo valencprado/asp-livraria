@@ -9,10 +9,19 @@ namespace ProjetoLivrariaNOITE.Models
     public class ClLivros
     { 
         public string codLivro { get; set; }
-        [DisplayName("Nome do Autor")]
+
+        [DisplayName("Nome do Livro")]
+
         public string nomeLivro { get; set; }
+
         public string codAutor { get; set; }
+
+        [DisplayName("Nome do Autor")]
+
         public string nomeAutor { get; set; }
-        public string status { get; set; }
+
+        [DisplayName("Status do Autor")]
+
+        public string sta { get; set; }
     }
 }

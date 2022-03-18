@@ -1,0 +1,23 @@
+﻿@model ProjetoLivrariaNOITE.Models.ClLivros
+@{
+    ViewBag.Title = "Cadastro do Autor";
+}
+
+<h2>Cadastro do Autor</h2>
+
+@using (Html.BeginForm("CadAutor", "Home", FormMethod.Post, new { enctype = 'multipart/formdata' }))
+{
+    @Html.LabelFor(m => m.nomeAutor)
+    <br />
+    <br />
+    @Html.EditorFor(m => m.nomeAutor)
+    <br />
+    <br />
+    @Html.LabelFor(m => m.sta)
+    <br />
+    <br />
+    @Html.EditorFor(m => m.sta)
+    <br />
+    <br />
+    <input type="submit" value="Cadastrar" />
+}
