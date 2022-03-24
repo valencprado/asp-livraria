@@ -23,5 +23,7 @@ namespace ProjetoLivrariaNOITE.Models
         [DisplayName("Status do Autor")]
 
         public string sta { get; set; }
+
+        public string codStatus { get; set; }
     }
 }

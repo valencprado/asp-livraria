@@ -33,13 +33,28 @@ namespace ProjetoLivrariaNOITE.Dados
 
 
             cmd.Parameters.Add("@nomeAutor",MySqlDbType.VarChar).Value = cm.nomeAutor;
-            cmd.Parameters.Add("@sta", MySqlDbType.VarChar).Value = cm.sta;
+            cmd.Parameters.Add("@sta", MySqlDbType.VarChar).Value = cm.codStatus;
 
             // nomeCli e telCli: São variaveis
 
             cmd.ExecuteNonQuery();
             con.MyDesConectarBD();
          
+
+        }
+        public void inserirStatus(ClLivros cm) // cm: É um objeto que vai trazer as "VARIAVEIS DO MODELO".
+        {
+            MySqlCommand cmd = new MySqlCommand("insert into tbStatus (sta) values (@sta)", con.MyConectarBD()); // @: PARAMETRO
+
+
+         
+            cmd.Parameters.Add("@sta", MySqlDbType.VarChar).Value = cm.sta;
+
+            // nomeCli e telCli: São variaveis
+
+            cmd.ExecuteNonQuery();
+            con.MyDesConectarBD();
+
 
         }
 
