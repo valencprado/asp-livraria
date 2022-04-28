@@ -17,7 +17,7 @@ namespace ProjetoLivrariaNOITE.Controllers
         public void carregaAutores()
         {
             List<SelectListItem> autores = new List<SelectListItem>();
-            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase:bdLivrariaNoite;User=root;pwd=12345678"))
+            using (MySqlConnection con = new MySqlConnection("Server=localhost;DataBase:bdLivrariaNoite;User=root;pwd=Figure.09"))
             {
                 con.Open();
                 MySqlCommand cmd = new MySqlCommand("select * from tbAutor where codStatus=1", con);
@@ -75,7 +75,6 @@ namespace ProjetoLivrariaNOITE.Controllers
         public ActionResult CadAutor()
         {
             carregaStatus();
-            cm.codStatus = Request["status"];
             return View();
         }
         [HttpPost] // cadastro só acontece quando o botão é ativado
