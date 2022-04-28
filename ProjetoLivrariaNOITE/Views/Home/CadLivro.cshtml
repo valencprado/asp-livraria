@@ -5,7 +5,7 @@
 
 <h2>CadLivro</h2>
 
-@using (Html.BeginForm("CadLivro", "Home", FormMethod.Post, new { enctype = 'multipart/formdata' }))
+@using (Html.BeginForm("CadLivro", "Home", FormMethod.Post, new { enctype = "multipart/formdata" }))
 {
     @Html.LabelFor(m => m.nomeLivro)
     <br />
@@ -13,7 +13,7 @@
     @Html.EditorFor(m => m.nomeLivro)
     <br />
     <br />
-    @Html.DropDownList("autores", "Escolha um ator top:")
+    @Html.DropDownList("autores", "Escolha um autor top:")
     <br />
     <br />
     <input type="submit" value="Cadastrar"/>

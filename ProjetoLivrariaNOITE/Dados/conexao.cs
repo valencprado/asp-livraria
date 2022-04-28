@@ -9,7 +9,7 @@ namespace ProjetoLivrariaNOITE.Dados
     public class conexao
     {
        
-        MySqlConnection cn = new MySqlConnection("Server=localhost; DataBase=bdLivrariaNoite; User=root;pwd=12345678");
+        MySqlConnection cn = new MySqlConnection("Server=localhost; DataBase=bdLivrariaNoite; User=root;pwd=Figure.09");
         public static string msg;
 
         public MySqlConnection MyConectarBD() //Método: MyConectarBD()
